@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="static/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="static/index.js"></script> -->
+    <title>Frontend Mentor | Expenses chart component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="balance-container">
+      <div class="content-balance">
+        <p>My balance</p>
+        <h1>$921.48</h1>
+      </div>
+      <div class="circles">
+        <img src="./images/logo.svg" alt="" />
+      </div>
+    </section>
+
+    <sectiom class="container-charts">
+      <h3 class="chat-title">Spending - Last 7 days</h3>
+
+      <div>
+        <canvas id="myChart" width="100%" height="100%S"></canvas>
+      </div>
+
+      <div class="container-footer-chart">
+        <div class="footer-chart-itemsLeft">
+          <p>Total this month</p>
+          <p>$478.33</p>
+        </div>
+
+        <div class="footer-chart-itemsRight">
+          <p>+2.4%</p>
+          <p>from last month</p>
+        </div>
+      </div>
+    </sectiom>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [
+            {
+              label: "USD $",
+              data: [17.45, 34.91, 52.36, 31.07, 23.39, 43.28, 25.48],
+              backgroundColor: [
+                "rgba(236, 119, 95)",
+                "rgba(236, 119, 95)",
+                "rgba(65, 127, 219)",
+                "rgba(236, 119, 95)",
+                "rgba(236, 119, 95)",
+                "rgba(236, 119, 95)",
+                "rgba(236, 119, 95)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 99, 132, 1)",
+                "rgba(255, 99, 132, 1)",
+                "rgba(255, 99, 132, 1)",
+              ],
+              borderWidth: 2,
+              borderRadius: 2,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+
+  </body>
+</html>
